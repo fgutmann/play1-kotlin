@@ -18,18 +18,20 @@ The main intention of it is to ease the transition from play framework 1 project
   
 ### Non-Goals
   
-* It is a non-goal to support bytecode enhancers provided by the play framework for kotlin code.
 * It is not a goal to support writing play plugins in kotlin.
-** `PropertiesEnhancer`: Unnecessary for kotlin classes. There is full property support in kotlin.
-** `ControllerEnhancer`: Controllers are the most deeply integrated part with play framework.
-   Since you will have to re-write almost all controller code for the new framework anyways,
-   there is not much sense in re-writing controllers first in kotlin for play framework.
-** `ContinuationEnhancer`: You can use coroutines in kotlin :-)
-** `LocalVariableNamesEnhancer`: Should only be used in controller code. See section about `ControllerEnhancer` above.
-** `MailerEnhancer`: Not sure what it exactly does but only used for sub-classes of `play.mvc.Mailer`.
-** `SigEnhancer`: Used for change detection.
-   TODO: define how to deal with this when we now how to work with compiling and code change detection.
-   Maybe we have to support it.
+  The plugins must compile without any dependency on a kotlin class.
+  As a work around one can call kotlin logic from plugins via reflection.
+* It is a non-goal to support bytecode enhancers provided by the play framework for kotlin code.
+    * `PropertiesEnhancer`: Unnecessary for kotlin classes. There is full property support in kotlin.
+    * `ControllerEnhancer`: Controllers are the most deeply integrated part with play framework.
+      Since you will have to re-write almost all controller code for the new framework anyways,
+      there is not much sense in re-writing controllers first in kotlin for play framework.
+    * `ContinuationEnhancer`: You can use coroutines in kotlin :-)
+    * `LocalVariableNamesEnhancer`: Should only be used in controller code. See section about `ControllerEnhancer` above.
+    * `MailerEnhancer`: Not sure what it exactly does but only used for sub-classes of `play.mvc.Mailer`.
+    * `SigEnhancer`: Used for change detection.
+      TODO: define how to deal with this when we now how to work with compiling and code change detection.
+      Maybe we have to support it.
    
 ## How it works
 
